@@ -1,6 +1,26 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import { Container } from 'react-bootstrap';
+import Header from './core/components/layout/Header';
+import Footer from './core/components/layout/Footer';
 
+class App extends React.Component {
+
+  render() {
+    return (
+      <>
+        <Header></Header>
+        <Container>
+
+        </Container>
+        <Footer></Footer>
+      </>
+    );
+  }
+
+}
+/*
 function App() {
   return (
     <div className="App">
@@ -21,5 +41,5 @@ function App() {
     </div>
   );
 }
-
+*/
 export default App;
