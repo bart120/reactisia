@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Navigate, Route, Routes } from 'react-router-dom';
+import Login from "../../../../pages/authentication/Login";
 import BrandList from "../../../../pages/brands/BrandList";
 import CarAdd from "../../../../pages/cars/CarAdd";
 import CarDetail from "../../../../pages/cars/CarDetail";
@@ -13,6 +14,7 @@ class MainRoutes extends Component {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/brands" caseSensitive element={<BrandList />} />
+                <Route path="/auth/login" caseSensitive element={<Login />} />
                 <Route path="/cars">
                     <Route path="detail/:id" element={<CarDetail />} />
                     <Route path="add" element={<CarAdd />} />
