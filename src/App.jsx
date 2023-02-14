@@ -4,18 +4,20 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import Header from './core/components/layout/Header';
 import Footer from './core/components/layout/Footer';
+import { BrowserRouter } from 'react-router-dom';
+import MainRoutes from './core/components/layout/routes/MainRoutes';
 
 class App extends React.Component {
 
   render() {
     return (
-      <>
+      <BrowserRouter>
         <Header></Header>
         <Container>
-
+          <MainRoutes />
         </Container>
         <Footer></Footer>
-      </>
+      </BrowserRouter>
     );
   }
 

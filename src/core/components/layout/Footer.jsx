@@ -21,7 +21,7 @@ class Footer extends Component {
             <footer>
                 <div>&copy; Formation ReactJS</div>
                 <Row>
-                    {this.state.brands?.map((item) =>
+                    {this.state.brands?.map((item, index) =>
                     (<Col key={item.name}>
                         <Card style={{ with: '18rem' }}>
                             <Card.Img variant="top" src={`/images/${item.image}`} />
