@@ -1,5 +1,5 @@
 import { Component } from "react";
-import withRouter from "../../core/components/layout/routes/withRouter";
+import withRouter from "../../core/routes/withRouter";
 
 class CarDetail extends Component {
     constructor(props) {

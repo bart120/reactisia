@@ -1,12 +1,12 @@
 import { Component } from "react";
 import { Navigate, Route, Routes } from 'react-router-dom';
-import Login from "../../../../pages/authentication/Login";
-import BrandList from "../../../../pages/brands/BrandList";
-import CarAdd from "../../../../pages/cars/CarAdd";
-import CarDetail from "../../../../pages/cars/CarDetail";
-import CarList from "../../../../pages/cars/CarList";
-import Home from "../../../../pages/home/Home";
-import NotFound from "../../../../pages/home/NotFound";
+import Login from "../../pages/authentication/Login";
+import BrandList from "../../pages/brands/BrandList";
+import CarAdd from "../../pages/cars/CarAdd";
+import CarDetail from "../../pages/cars/CarDetail";
+import CarList from "../../pages/cars/CarList";
+import Home from "../../pages/home/Home";
+import NotFound from "../../pages/home/NotFound";
 
 class MainRoutes extends Component {
     render() {
