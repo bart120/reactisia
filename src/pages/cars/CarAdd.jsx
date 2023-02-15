@@ -1,16 +1,37 @@
 import { Component } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Spinner } from "react-bootstrap";
+import withRouter from "../../core/routes/withRouter";
+import BrandsService from "../../core/services/BrandsService";
+import CarsService from "../../core/services/CarsService";
 
 class CarAdd extends Component {
+    servBrand = new BrandsService();
+    servCar = new CarsService();
+
     constructor(props) {
         super(props);
     }
-    state = {};
+    state = { brands: null };
 
     car = {};
 
     changeFormField = (ev) => {
         this.car[ev.target.name] = ev.target.value;
+    }
+
+    submit = async (ev) => {
+        ev.preventDefault();
+        console.log(this.car);
+        const newCar = await this.servCar.addCar(this.car);
+        alert(`La voiture est enregistrée avec l'id: ${newCar.id}`);
+        this.props.navigate('/cars');
+    }
+
+
+    async componentDidMount() {
+        const data = (await this.servBrand.getBrands()).sort((a, b) => a.name.localeCompare(b.name));
+        this.setState({ brands: data });
+        //this.cars.brandID = brands[0].id;
     }
 
     render() {
@@ -32,9 +53,17 @@ class CarAdd extends Component {
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Marque</Form.Label>
-                        <Form.Select name="brandID" onChange={this.changeFormField}>
-
-                        </Form.Select>
+                        {this.state.brands == null ?
+                            <Spinner animation="border" role="status">
+                                <span className="visually-hidden">Loading...</span>
+                            </Spinner> :
+                            <Form.Select name="brandID" onChange={this.changeFormField}>
+                                <option value="">--</option>
+                                {this.state.brands.map(brand => (
+                                    <option key={brand.id} value={brand.id}>{brand.name}</option>
+                                ))}
+                            </Form.Select>
+                        }
                     </Form.Group>
                     <Button variant="primary" type="submit">Enregistrer</Button>
                 </Form>
@@ -43,4 +72,4 @@ class CarAdd extends Component {
     }
 }
 
-export default CarAdd;
+export default withRouter(CarAdd);

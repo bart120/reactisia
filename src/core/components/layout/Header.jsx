@@ -1,8 +1,13 @@
 import { Component } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 class Header extends Component {
+    componentDidMount() {
+        console.log('props: ', this.props);
+    }
+
     render() {
         return (
             <Navbar bg="dark" expand="lg" variant="dark">
@@ -17,7 +22,9 @@ class Header extends Component {
                                 <div><Link to="/cars">Lister</Link></div>
                                 <div><Link to="/cars/add">Ajouter</Link></div>
                             </NavDropdown>
-                            <Link className="nav-link" to="/auth/login">Connexion</Link>
+                            {this.props.isConnected ?
+                                (<p style={{ color: "#fff" }}>Bonjour {this.props.user?.name} </p>) :
+                                (<Link className="nav-link" to="/auth/login">Connexion</Link>)}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
@@ -26,4 +33,8 @@ class Header extends Component {
     }
 
 }
-export default Header;
+
+const mapStateToProps = (stateStore) => {
+    return { user: stateStore.auth.user, isConnected: stateStore.auth.isConnected };
+}
+export default connect(mapStateToProps)(Header);

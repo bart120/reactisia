@@ -1,0 +1,14 @@
+{
+    "translation": {
+        "header": {
+            "title": "Mon App en formation",
+            "home": "Accueil",
+            "rooms": "les voitures",
+            "add": "Ajouter une voiture"
+        },
+        "login": {
+            "email": "Email",
+            "password": "Mot de passe"
+        }
+    }
+}

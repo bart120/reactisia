@@ -1,6 +1,9 @@
 import { Component } from "react";
 import { Button, Form } from "react-bootstrap";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import InputEmail from "../../core/components/forms/InputEmail";
+import { login } from "../../core/redux/authenticationActions";
 import withRouter from "../../core/routes/withRouter";
 
 
@@ -18,9 +21,11 @@ class Login extends Component {
 
     submit = (ev) => {
         ev.preventDefault();
-        console.log(this.log);
+        //console.log(this.log);
         //this.props.navigate("/");
         //console.log("après navigate");
+        const user = { name: 'Bob', mail: this.log.login };
+        this.props.onLogin(user);
     }
 
     render() {
@@ -45,4 +50,8 @@ class Login extends Component {
     }
 }
 
-export default withRouter(Login);
+const mapActionsToProps = (paylaod) => {
+    return { onLogin: bindActionCreators(login, paylaod) };
+}
+
+export default connect(null, mapActionsToProps)(withRouter(Login));
