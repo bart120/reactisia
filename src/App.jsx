@@ -9,6 +9,8 @@ import MainRoutes from './core/routes/MainRoutes';
 import { Provider } from 'react-redux';
 import { store } from './core/redux/store';
 
+import './conf/translation';
+
 class App extends React.Component {
 
   render() {

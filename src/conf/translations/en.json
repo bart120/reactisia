@@ -3,7 +3,7 @@
         "header": {
             "title": "My App in training",
             "home": "Home",
-            "rooms": "Cars",
+            "cars": "Cars",
             "add": "Add car"
         },
         "login": {

@@ -3,8 +3,8 @@
         "header": {
             "title": "Mon App en formation",
             "home": "Accueil",
-            "rooms": "les voitures",
-            "add": "Ajouter une voiture"
+            "cars": "les voitures",
+            "add": "Ajouter une voiture ou pas"
         },
         "login": {
             "email": "Email",

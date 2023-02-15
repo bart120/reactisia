@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { withTranslation } from "react-i18next";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -9,6 +10,7 @@ class Header extends Component {
     }
 
     render() {
+        const { t } = this.props;
         return (
             <Navbar bg="dark" expand="lg" variant="dark">
                 <Container>
@@ -20,7 +22,7 @@ class Header extends Component {
                             <a href="/index2.html" target="_blank" className="nav-link" >Brands</a>
                             <NavDropdown title="Voitures" id="basic-nav-dropdown">
                                 <div><Link to="/cars">Lister</Link></div>
-                                <div><Link to="/cars/add">Ajouter</Link></div>
+                                <div><Link to="/cars/add">{t('header.add')}</Link></div>
                             </NavDropdown>
                             {this.props.isConnected ?
                                 (<p style={{ color: "#fff" }}>Bonjour {this.props.user?.name} </p>) :
@@ -37,4 +39,4 @@ class Header extends Component {
 const mapStateToProps = (stateStore) => {
     return { user: stateStore.auth.user, isConnected: stateStore.auth.isConnected };
 }
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps)(withTranslation()(Header));
