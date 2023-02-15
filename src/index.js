@@ -5,10 +5,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const el = document.getElementById('root');
+const root = ReactDOM.createRoot(el);
+console.log(el.getAttribute('data-layout'));
+
 root.render(
   <React.StrictMode>
-    <App />
+    <App layout={el.getAttribute('data-layout')} />
   </React.StrictMode>
 );
 

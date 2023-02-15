@@ -12,7 +12,7 @@ class Header extends Component {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             <Link className="nav-link" to="/">Home</Link>
-                            <Link className="nav-link" to="/brands">Marques</Link>
+                            <a href="/index2.html" target="_blank" className="nav-link" >Brands</a>
                             <NavDropdown title="Voitures" id="basic-nav-dropdown">
                                 <div><Link to="/cars">Lister</Link></div>
                                 <div><Link to="/cars/add">Ajouter</Link></div>

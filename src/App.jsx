@@ -12,7 +12,9 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <Header></Header>
+        {this.props.layout == "header" &&
+          <Header></Header>
+        }
         <Container>
           <MainRoutes />
         </Container>
